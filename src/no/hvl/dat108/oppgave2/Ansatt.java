@@ -28,6 +28,6 @@ public class Ansatt {
 	
 	@Override
 	public String toString() {
-		return "";
+		return String.format("%d %d - %d - %d", fornavn, etternavn, stilling, kjonn.name());
 	}
 }
