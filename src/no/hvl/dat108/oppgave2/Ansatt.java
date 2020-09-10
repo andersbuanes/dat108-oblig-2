@@ -21,4 +21,13 @@ public class Ansatt {
 		aarslonn = nyLonn;
 		return aarslonn;
 	}
+	
+	public Kjonn getKjonn() {
+		return kjonn;
+	}
+	
+	@Override
+	public String toString() {
+		return "";
+	}
 }
