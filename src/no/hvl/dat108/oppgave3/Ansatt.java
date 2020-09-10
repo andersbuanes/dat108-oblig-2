@@ -5,12 +5,24 @@ public class Ansatt {
 	private Kjonn kjonn;
 	private int aarslonn;
 	
+	/**
+	 * 
+	 * @param fnavn Fornavnet til den ansatte
+	 * @param enavn Etternavnet til den ansatte
+	 * @param stilling Den ansattes stilling
+	 * @param kjonn Kjonn av den ansatte
+	 * @param lonn Ansattes aarslonn
+	 */
 	public Ansatt(String fnavn, String enavn, String stilling, Kjonn kjonn, int lonn) {
 		this.fornavn = fnavn;
 		this.etternavn = enavn;
 		this.stilling = stilling;
 		this.kjonn = kjonn;
 		this.aarslonn = lonn;
+	}
+	
+	public String getFornavn() {
+		return fornavn;
 	}
 	
 	public String getEtternavn() {
@@ -25,6 +37,11 @@ public class Ansatt {
 		return stilling;
 	}
 	
+	/**
+	 * 
+	 * @param nyLonn ny aarslonn
+	 * @return aarslonn
+	 */
 	public int setLonn(int nyLonn) {
 		aarslonn = nyLonn;
 		return aarslonn;
@@ -36,6 +53,6 @@ public class Ansatt {
 	
 	@Override
 	public String toString() {
-		return String.format("%d %d - %d - %d", fornavn, etternavn, stilling, kjonn.name());
+		return String.format("| %-20s | %-18s | %-7s |", fornavn + " " + etternavn, stilling, kjonn.getNavn());
 	}
 }

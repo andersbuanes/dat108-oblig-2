@@ -13,4 +13,8 @@ public enum Kjonn {
 	Kjonn(String navn) {
 		this.navn = navn;
 	}
+	
+	public String getNavn() {
+		return navn;
+	}
 }
