@@ -53,6 +53,6 @@ public class Ansatt {
 	
 	@Override
 	public String toString() {
-		return String.format("| %-20s | %-18s | %-7s |", fornavn + " " + etternavn, stilling, kjonn.getNavn());
+		return String.format("| %-20s | %-18s | %-7s | %9d |", fornavn + " " + etternavn, stilling, kjonn.getNavn(), aarslonn);
 	}
 }

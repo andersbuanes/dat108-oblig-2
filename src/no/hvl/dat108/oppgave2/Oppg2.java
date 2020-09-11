@@ -20,7 +20,8 @@ public class Oppg2 {
 		ansatte.add(new Ansatt("Andrea", "Sannesmoen", "Sjef for økomoni", Kjonn.KVINNE, 650000));
 
 		skrivUtAlle(ansatte);
-
+		System.out.println();
+		
 		lonnsoppgjor(ansatte, kronetillegg);
 		lonnsoppgjor(ansatte, prosenttillegg);
 		lonnsoppgjor(ansatte, kronetilleggLavLonn);
@@ -37,12 +38,10 @@ public class Oppg2 {
 																: 0;
 
 	public static void lonnsoppgjor(List<Ansatt> ansatte, Function<Ansatt, Integer> f) {
-		for (Ansatt a : ansatte)
-			f.apply(a);
+		ansatte.forEach(a -> f.apply(a));
 	}
 
 	public static void skrivUtAlle(List<Ansatt> ansatte) {
-		for (Ansatt a : ansatte)
-			System.out.println(a.toString());
+		ansatte.forEach(a -> System.out.println(a.toString()));
 	}
 }
