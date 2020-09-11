@@ -1,8 +1,6 @@
 package no.hvl.dat108.oppgave3;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -52,10 +50,7 @@ public class Oppg3 {
 		List<Ansatt> minsteLonnAnsatte = ansatte.stream().filter(a -> a.getLonn() == minsteLonn).collect(Collectors.toList());
 		
 		System.out.println("De minste tjenende ansatte er:");
-		
-		for (Ansatt a : minsteLonnAnsatte)
-			System.out.println(a.toString());
-		
+		minsteLonnAnsatte.forEach(a -> System.out.println(a.toString()));
 		System.out.println();
 
 		// h
