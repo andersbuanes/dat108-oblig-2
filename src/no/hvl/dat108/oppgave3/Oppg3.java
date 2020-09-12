@@ -30,7 +30,7 @@ public class Oppg3 {
 		// c
 		int lonnKvinner = (int) ansatte.stream().filter(a -> a.getKjonn().equals(Kjonn.KVINNE))
 										.mapToInt(a -> a.getLonn()).average().getAsDouble();
-		System.out.printf("Gjennomsnittslønn hos kvinner: %d\n", lonnKvinner);
+		System.out.printf("Gjennomsnittslønn hos kvinnene: %d\n", lonnKvinner);
 
 		// d
 		ansatte.stream().filter(a -> a.getStilling().contains("sjef")).forEach(a -> System.out.println(a.toString()));
@@ -38,7 +38,7 @@ public class Oppg3 {
 
 		// e
 		boolean b = ansatte.stream().anyMatch(a -> a.getLonn() > 800000);
-		System.out.printf("Tjener noen mer enn 800 000kr? %b\n", b);
+		System.out.printf("Tjener noen over 800 000kr? %b\n", b);
 		System.out.println();
 
 		// f
@@ -49,7 +49,7 @@ public class Oppg3 {
 		int minsteLonn = ansatte.stream().mapToInt(Ansatt::getLonn).min().getAsInt();
 		List<Ansatt> minsteLonnAnsatte = ansatte.stream().filter(a -> a.getLonn() == minsteLonn).collect(Collectors.toList());
 		
-		System.out.println("De minste tjenende ansatte er:");
+		System.out.println("De(n) ansatte som tjener minst:");
 		minsteLonnAnsatte.forEach(a -> System.out.println(a.toString()));
 		System.out.println();
 

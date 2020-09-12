@@ -19,23 +19,23 @@ public class Oppg2 {
 		ansatte.add(new Ansatt("Henrik", "Hammer", "Sjef for memes", Kjonn.MANN, 550000));
 		ansatte.add(new Ansatt("Andrea", "Sannesmoen", "Sjef for økomoni", Kjonn.KVINNE, 650000));
 
+		Function<Ansatt, Integer> kronetillegg = a -> a.setLonn(a.getLonn() + 50000);
+		Function<Ansatt, Integer> prosenttillegg = a -> a.setLonn((int) (a.getLonn() * 1.05));
+		Function<Ansatt, Integer> kronetilleggLavLonn = a -> a.getLonn() < 500000 ? kronetillegg.apply(a) : 0;
+		Function<Ansatt, Integer> prosenttilleggMann = a -> a.getKjonn().equals(Kjonn.MANN)
+																	? prosenttillegg.apply(a)
+																	: 0;
+		
 		skrivUtAlle(ansatte);
 		System.out.println();
 		
 		lonnsoppgjor(ansatte, kronetillegg);
 		lonnsoppgjor(ansatte, prosenttillegg);
 		lonnsoppgjor(ansatte, kronetilleggLavLonn);
-		lonnsoppgjor(ansatte, prosenttilleggHvisMann);
+		lonnsoppgjor(ansatte, prosenttilleggMann);
 
 		skrivUtAlle(ansatte);
 	}
-
-	static Function<Ansatt, Integer> kronetillegg = a -> a.setLonn(a.getLonn() + 50000);
-	static Function<Ansatt, Integer> prosenttillegg = a -> a.setLonn((int) (a.getLonn() * 1.05));
-	static Function<Ansatt, Integer> kronetilleggLavLonn = a -> a.getLonn() < 500000 ? kronetillegg.apply(a) : 0;
-	static Function<Ansatt, Integer> prosenttilleggHvisMann = a -> a.getKjonn().equals(Kjonn.MANN)
-																? prosenttillegg.apply(a)
-																: 0;
 
 	public static void lonnsoppgjor(List<Ansatt> ansatte, Function<Ansatt, Integer> f) {
 		ansatte.forEach(a -> f.apply(a));
