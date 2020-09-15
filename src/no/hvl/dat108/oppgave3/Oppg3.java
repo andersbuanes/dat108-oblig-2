@@ -19,13 +19,11 @@ public class Oppg3 {
 
 		// a
 		List<String> etternavn = ansatte.stream().map(a -> a.getEtternavn()).collect(Collectors.toList());
-		System.out.println(etternavn.toString());
-		System.out.println();
+		System.out.println(etternavn.toString() + "\n");
 
 		// b
 		int antallKvinner = (int) ansatte.stream().filter(a -> a.getKjonn().equals(Kjonn.KVINNE)).count();
-		System.out.printf("Antall kvinner: %d\n", antallKvinner);
-		System.out.println();
+		System.out.printf("Antall kvinner: %d\n\n", antallKvinner);
 
 		// c
 		int lonnKvinner = (int) ansatte.stream().filter(a -> a.getKjonn().equals(Kjonn.KVINNE))
@@ -33,13 +31,12 @@ public class Oppg3 {
 		System.out.printf("Gjennomsnittslønn hos kvinnene: %d\n", lonnKvinner);
 
 		// d
-		ansatte.stream().filter(a -> a.getStilling().contains("sjef")).forEach(a -> System.out.println(a.toString()));
+		ansatte.stream().filter(a -> a.getStilling().toLowerCase().contains("sjef")).forEach(a -> System.out.println(a.toString()));
 		System.out.println();
 
 		// e
 		boolean b = ansatte.stream().anyMatch(a -> a.getLonn() > 800000);
-		System.out.printf("Tjener noen over 800 000kr? %b\n", b);
-		System.out.println();
+		System.out.printf("Tjener noen over 800 000kr? %b\n\n", b);
 
 		// f
 		ansatte.stream().forEach(a -> System.out.println(a.toString()));
